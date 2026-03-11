@@ -1308,3 +1308,189 @@ def main():
                 if obj.get("type") == "meta":
                     meta_results[account] = {
                         "total":  obj.get("total", 0),
+                              # (接上面 Phase1 循环内的 for obj in results:)
+            for obj in results:
+                account = obj.get("a", "").lstrip("@")
+                if not account:
+                    continue
+                if obj.get("type") == "meta":
+                    meta_results[account] = {
+                        "total":  obj.get("total", 0),
+                        "max_l":  obj.get("max_l", 0),
+                        "latest": obj.get("latest", "NA"),
+                    }
+                else:
+                    phase1_posts.setdefault(account, []).append(obj)
+
+        print(
+            f"\n[Phase 1] Done: {len(meta_results)} metadata rows, "
+            f"{len(phase1_posts)} accounts with posts.",
+            flush=True,
+        )
+
+        # -- Classification --
+        classification = classify_accounts(meta_results)
+
+        # Fallback: any un-classified account -> "B"
+        for acc in ALL_ACCOUNTS:
+            if acc not in classification:
+                classification[acc] = "B"
+
+        s_accounts = [a for a, t in classification.items() if t == "S"]
+        a_accounts = [a for a, t in classification.items() if t == "A"]
+        b_accounts = [a for a, t in classification.items() if t == "B"]
+        inactive   = [a for a, t in classification.items() if t == "inactive"]
+
+        print(f"\n[Classification] S={len(s_accounts)} A={len(a_accounts)} "
+              f"B={len(b_accounts)} inactive={len(inactive)}", flush=True)
+        if s_accounts:
+            print(f"  S-tier: {', '.join(s_accounts)}", flush=True)
+        if a_accounts:
+            print(f"  A-tier (first 10): {', '.join(a_accounts[:10])}", flush=True)
+
+        # ======================================================================
+        # Phase 2-S: Deep-collect S-tier
+        # ======================================================================
+        if s_accounts and time.time() - _START_TIME < GLOBAL_DEADLINE:
+            print("\n" + "=" * 50, flush=True)
+            print(f"Phase 2-S: Deep collection ({len(s_accounts)} S accounts)", flush=True)
+            print("=" * 50, flush=True)
+
+            s_results = run_grok_batch(
+                context, s_accounts, build_phase2_s_prompt,
+                label="Phase2-S", initial_wait=60,
+            )
+            for obj in s_results:
+                account = obj.get("a", "").lstrip("@")
+                if account and obj.get("type") != "meta":
+                    phase2_posts.setdefault(account, []).append(obj)
+
+            print(f"[Phase 2-S] OK {sum(len(v) for v in phase2_posts.values())} posts collected",
+                  flush=True)
+        else:
+            print("[Phase 2-S] Skipped (no S-tier accounts or global timeout)", flush=True)
+
+        # ======================================================================
+        # Phase 2-A: Collect A-tier
+        # ======================================================================
+        if a_accounts and time.time() - _START_TIME < GLOBAL_DEADLINE:
+            print("\n" + "=" * 50, flush=True)
+            print(f"Phase 2-A: Collection ({len(a_accounts)} A accounts)", flush=True)
+            print("=" * 50, flush=True)
+
+            a_results = run_grok_batch(
+                context, a_accounts, build_phase2_a_prompt,
+                label="Phase2-A", initial_wait=60,
+            )
+            for obj in a_results:
+                account = obj.get("a", "").lstrip("@")
+                if account and obj.get("type") != "meta":
+                    phase2_posts.setdefault(account, []).append(obj)
+
+            a_post_count = sum(len(v) for v in phase2_posts.values())
+            print(f"[Phase 2-A] OK Total phase2 posts: {a_post_count}", flush=True)
+        else:
+            print("[Phase 2-A] Skipped (no A-tier accounts or global timeout)", flush=True)
+
+        # -- Session renewal --
+        save_and_renew_session(context)
+        browser.close()
+
+    # ==========================================================================
+    # Build combined JSONL for LLM
+    # ==========================================================================
+    print("\n[Data] Building combined JSONL...", flush=True)
+
+    all_posts_flat = []
+
+    for acc in s_accounts + a_accounts:
+        if phase2_posts.get(acc):
+            all_posts_flat.extend(phase2_posts[acc])
+        elif phase1_posts.get(acc):
+            all_posts_flat.extend(phase1_posts[acc])
+
+    for acc in b_accounts:
+        if phase1_posts.get(acc):
+            all_posts_flat.extend(phase1_posts[acc])
+
+    combined_jsonl = "\n".join(
+        json.dumps(obj, ensure_ascii=False)
+        for obj in all_posts_flat
+        if obj.get("type") != "meta"
+    )
+    print(f"[Data] Combined JSONL: {len(all_posts_flat)} posts, "
+          f"{len(combined_jsonl)} chars", flush=True)
+
+    # ==========================================================================
+    # LLM: Claude first, Kimi fallback
+    # ==========================================================================
+    report_text   = ""
+    cover_title   = ""
+    cover_prompt  = ""
+    cover_insight = ""
+    model_label   = ""
+
+    if combined_jsonl.strip():
+        print("\n[LLM] Calling Claude (primary)...", flush=True)
+        report_text, cover_title, cover_prompt, cover_insight = llm_call_claude(
+            combined_jsonl, today_str
+        )
+        if report_text:
+            model_label = "Claude"
+        else:
+            print("[LLM] Claude failed, falling back to Kimi-k2.5...", flush=True)
+            report_text, cover_title, cover_prompt, cover_insight = llm_call_kimi(
+                combined_jsonl, today_str
+            )
+            if report_text:
+                model_label = "Kimi-k2.5"
+
+        if not report_text:
+            print("[LLM] WARNING: Both Claude and Kimi failed to generate report.", flush=True)
+    else:
+        print("[LLM] WARNING: No posts collected, skipping LLM call.", flush=True)
+
+    # -- Cover image --
+    cover_url = ""
+    if cover_prompt:
+        print("\n[Image] Generating cover image...", flush=True)
+        cover_url = generate_cover_image(cover_prompt)
+        print(f"[Image] {'OK ' + cover_url[:60] if cover_url else 'Skipped'}", flush=True)
+
+    # ==========================================================================
+    # Push to Feishu
+    # ==========================================================================
+    if report_text:
+        print("\n[Push] Sending to Feishu...", flush=True)
+        send_to_feishu_card(report_text, today_str, model_label=model_label or "AI")
+
+    # ==========================================================================
+    # Push to WeChat (Jijyun)
+    # ==========================================================================
+    if report_text and JIJYUN_WEBHOOK_URL:
+        print("\n[Push] Sending to WeChat (Jijyun)...", flush=True)
+        html_content = build_wechat_html(report_text, cover_url=cover_url, insight=cover_insight)
+        wechat_title = cover_title or f"中文圈出海日报 | {today_str}"
+        push_to_jijyun(html_content, title=wechat_title, cover_url=cover_url)
+
+    # ==========================================================================
+    # Save daily data
+    # ==========================================================================
+    print("\n[Data] Saving daily data...", flush=True)
+    save_daily_data(
+        today_str=today_str,
+        post_objects=all_posts_flat,
+        meta_results=meta_results,
+        report_text=report_text,
+        classification=classification,
+    )
+
+    print("\n" + "=" * 60, flush=True)
+    print(f"DONE | today={today_str} | posts={len(all_posts_flat)} | "
+          f"model={model_label or 'none'} | feishu_hooks={len(get_feishu_webhooks())}",
+          flush=True)
+    print("=" * 60, flush=True)
+
+
+if __name__ == "__main__":
+    main()
