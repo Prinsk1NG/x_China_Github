@@ -1301,18 +1301,13 @@ def main():
             label   = f"Phase1-Batch{batch_num}"
             results = run_grok_batch(context, batch, build_phase1_prompt, label)
 
+            # FIX: the original file had a duplicated/garbled loop here that caused
+            # SyntaxError: '{' was never closed. Keep a single clean parser loop.
             for obj in results:
                 account = obj.get("a", "").lstrip("@")
                 if not account:
                     continue
-                if obj.get("type") == "meta":
-                    meta_results[account] = {
-                        "total":  obj.get("total", 0),
-                              # (接上面 Phase1 循环内的 for obj in results:)
-            for obj in results:
-                account = obj.get("a", "").lstrip("@")
-                if not account:
-                    continue
+
                 if obj.get("type") == "meta":
                     meta_results[account] = {
                         "total":  obj.get("total", 0),
