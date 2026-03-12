@@ -21,6 +21,12 @@ v3.4 changelog (CN edition):
   - Accounts replaced with 80 中文圈 AI/出海/独立开发者 accounts (6 batches)
   - Feishu card title: 昨晚，那些出海搞钱的人都在聊啥
   - LLM prompt tailored for 中文圈 AI创业/出海/SaaS/独立开发 themes
+
+TEST MODE (added):
+  - Enable via env: TEST_MODE=1/true/on/yes
+  - Only runs ONE Phase1 batch, containing Batch1 (AI核心KOL 14 accounts)
+  - All downstream work still runs: classification, phase2, llm, push, save data, etc.
+  - Optional: set TEST_MODE_NO_PUSH=1 to skip Feishu/WeChat push during tests.
 """
 
 import os
@@ -76,6 +82,30 @@ ALL_ACCOUNTS = [
     "Web3Yolanda", "maboroshi", "CryptoMasterAI", "AIProductDaily",
     "aigclink", "founder_park", "geekpark", "pingwest",
 ]
+
+# -- Batch 1 only (AI核心KOL 14人) ---------------------------------------------
+BATCH1_ACCOUNTS = [
+    "dotey", "op7418", "Gorden_Sun", "xiaohu", "shao__meng",
+    "thinkingjimmy", "nishuang", "vista8", "lijigang", "kaifulee",
+    "WaytoAGI", "oran_ge", "AlchainHust", "haibun",
+]
+
+
+def _is_test_mode() -> bool:
+    """
+    Enable via env: TEST_MODE=1/true/on/yes
+    """
+    v = (os.getenv("TEST_MODE", "") or "").strip().lower()
+    return v in {"1", "true", "yes", "y", "on"}
+
+
+def _skip_push_in_test_mode() -> bool:
+    """
+    Optional: during tests, skip Feishu/WeChat push to avoid spamming.
+    Enable via env: TEST_MODE_NO_PUSH=1/true/on/yes
+    """
+    v = (os.getenv("TEST_MODE_NO_PUSH", "") or "").strip().lower()
+    return v in {"1", "true", "yes", "y", "on"}
 
 
 # ==============================================================================
@@ -355,9 +385,9 @@ def send_prompt(page, prompt_text, label, screenshot_prefix):
 
     if not clicked:
         result = page.evaluate("""() => {
-            const btn = document.querySelector("button[type='submit']")
-                     || document.querySelector("button[aria-label='Submit']")
-                     || document.querySelector("button[aria-label='Send message']");
+            const btn = document.query_selector("button[type='submit']")
+                     || document.query_selector("button[aria-label='Submit']")
+                     || document.query_selector("button[aria-label='Send message']");
             if (btn) { btn.click(); return true; }
             return false;
         }""")
@@ -1223,6 +1253,13 @@ def main():
     print("昨晚，那些出海搞钱的人都在聊啥 v3.4 (Grok search + Claude/Kimi summary)", flush=True)
     print("=" * 60, flush=True)
 
+    test_mode = _is_test_mode()
+    selected_accounts = BATCH1_ACCOUNTS if test_mode else ALL_ACCOUNTS
+    if test_mode:
+        print("[TEST_MODE] Enabled: only running ONE Phase1 batch with Batch1 (14 accounts).", flush=True)
+        if _skip_push_in_test_mode():
+            print("[TEST_MODE] TEST_MODE_NO_PUSH enabled: will skip Feishu/WeChat pushes.", flush=True)
+
     check_cookie_expiry()
     is_storage_state = prepare_session_file()
     today_str, _ = get_dates()
@@ -1279,14 +1316,19 @@ def main():
         print(f"Phase 1: Tiered scan (PHASE1_DEADLINE={PHASE1_DEADLINE//60} min)", flush=True)
         print("=" * 50, flush=True)
 
-        BATCH_SIZE = 25
+        # In test mode, keep accounts in a single batch.
+        BATCH_SIZE = 25 if not test_mode else 50
 
         for batch_num, batch_start in enumerate(
-                range(0, len(ALL_ACCOUNTS), BATCH_SIZE), start=1):
+                range(0, len(selected_accounts), BATCH_SIZE), start=1):
+
+            if test_mode and batch_num > 1:
+                print("[TEST_MODE] Phase1 limited to 1 batch, stopping further batches.", flush=True)
+                break
 
             elapsed = time.time() - _START_TIME
             if elapsed > PHASE1_DEADLINE:
-                remaining_accounts = ALL_ACCOUNTS[batch_start:]
+                remaining_accounts = selected_accounts[batch_start:]
                 print(
                     f"\n[Phase 1] Warning: Timeout ({elapsed:.0f}s > {PHASE1_DEADLINE}s), "
                     f"skipping {len(remaining_accounts)} remaining accounts (B-tier degradation).",
@@ -1297,12 +1339,11 @@ def main():
                         meta_results.setdefault(acc, {"total": 1, "max_l": 0, "latest": "NA"})
                 break
 
-            batch   = ALL_ACCOUNTS[batch_start:batch_start + BATCH_SIZE]
-            label   = f"Phase1-Batch{batch_num}"
+            batch   = selected_accounts[batch_start:batch_start + BATCH_SIZE]
+            label   = f"Phase1-Batch{batch_num}" + ("-TEST" if test_mode else "")
             results = run_grok_batch(context, batch, build_phase1_prompt, label)
 
-            # FIX: the original file had a duplicated/garbled loop here that caused
-            # SyntaxError: '{' was never closed. Keep a single clean parser loop.
+            # Parse Phase 1 results (single clean loop)
             for obj in results:
                 account = obj.get("a", "").lstrip("@")
                 if not account:
@@ -1327,7 +1368,7 @@ def main():
         classification = classify_accounts(meta_results)
 
         # Fallback: any un-classified account -> "B"
-        for acc in ALL_ACCOUNTS:
+        for acc in selected_accounts:
             if acc not in classification:
                 classification[acc] = "B"
 
@@ -1353,7 +1394,8 @@ def main():
 
             s_results = run_grok_batch(
                 context, s_accounts, build_phase2_s_prompt,
-                label="Phase2-S", initial_wait=60,
+                label="Phase2-S" + ("-TEST" if test_mode else ""),
+                initial_wait=60,
             )
             for obj in s_results:
                 account = obj.get("a", "").lstrip("@")
@@ -1375,7 +1417,8 @@ def main():
 
             a_results = run_grok_batch(
                 context, a_accounts, build_phase2_a_prompt,
-                label="Phase2-A", initial_wait=60,
+                label="Phase2-A" + ("-TEST" if test_mode else ""),
+                initial_wait=60,
             )
             for obj in a_results:
                 account = obj.get("a", "").lstrip("@")
@@ -1456,17 +1499,23 @@ def main():
     # Push to Feishu
     # ==========================================================================
     if report_text:
-        print("\n[Push] Sending to Feishu...", flush=True)
-        send_to_feishu_card(report_text, today_str, model_label=model_label or "AI")
+        if test_mode and _skip_push_in_test_mode():
+            print("[TEST_MODE] Skip Feishu push.", flush=True)
+        else:
+            print("\n[Push] Sending to Feishu...", flush=True)
+            send_to_feishu_card(report_text, today_str, model_label=model_label or "AI")
 
     # ==========================================================================
     # Push to WeChat (Jijyun)
     # ==========================================================================
     if report_text and JIJYUN_WEBHOOK_URL:
-        print("\n[Push] Sending to WeChat (Jijyun)...", flush=True)
-        html_content = build_wechat_html(report_text, cover_url=cover_url, insight=cover_insight)
-        wechat_title = cover_title or f"中文圈出海日报 | {today_str}"
-        push_to_jijyun(html_content, title=wechat_title, cover_url=cover_url)
+        if test_mode and _skip_push_in_test_mode():
+            print("[TEST_MODE] Skip WeChat push.", flush=True)
+        else:
+            print("\n[Push] Sending to WeChat (Jijyun)...", flush=True)
+            html_content = build_wechat_html(report_text, cover_url=cover_url, insight=cover_insight)
+            wechat_title = cover_title or f"中文圈出海日报 | {today_str}"
+            push_to_jijyun(html_content, title=wechat_title, cover_url=cover_url)
 
     # ==========================================================================
     # Save daily data
