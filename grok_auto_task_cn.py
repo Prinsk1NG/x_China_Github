@@ -102,7 +102,7 @@ def _is_test_mode() -> bool:
 def _skip_push_in_test_mode() -> bool:
     """
     Optional: during tests, skip Feishu/WeChat push to avoid spamming.
-    Enable via env: TEST_MODE_NO_PUSH=1/true/on/yes
+    Enable via env: TEST_MODE_NO_PUSH=0
     """
     v = (os.getenv("TEST_MODE_NO_PUSH", "") or "").strip().lower()
     return v in {"1", "true", "yes", "y", "on"}
