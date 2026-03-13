@@ -19,7 +19,7 @@ Phase 2 - Differential collection + report (global deadline 85 min):
 v3.4 changelog (CN edition):
   - Based on grok_auto_task v3.4 architecture
   - Accounts replaced with 80 中文圈 AI/出海/独立开发者 accounts (6 batches)
-  - Feishu card title: 昨晚，那些出海搞钱的人都在聊啥
+  - Feishu card title: 昨晚,那些出海搞钱的人都在聊啥
   - LLM prompt tailored for 中文圈 AI创业/出海/SaaS/独立开发 themes
 
 TEST MODE (added):
@@ -255,7 +255,7 @@ def check_cookie_expiry():
 
 
 # ==============================================================================
-# Model selection — v3.3: broader selector, non-fatal
+# Model selection - v3.3: broader selector, non-fatal
 # ==============================================================================
 def enable_grok4_beta(page):
     print("\n[Model] Trying to enable Beta Toggle...", flush=True)
@@ -577,7 +577,7 @@ def build_phase2_a_prompt(accounts: list) -> str:
 
 
 # ==============================================================================
-# Account classification — v3.3: lowered thresholds
+# Account classification - v3.3: lowered thresholds
 # ==============================================================================
 def classify_accounts(meta_results: dict) -> dict:
     tz = timezone(timedelta(hours=8))
@@ -688,85 +688,85 @@ def run_grok_batch(context, accounts: list, prompt_builder, label: str,
 def _build_llm_prompt(combined_jsonl: str, today_str: str) -> str:
     return f"""
 # Role
-你是一位顶级的中文互联网科技/出海领域投资分析师，拥有10年经验。你每天为合伙人撰写一份"中文圈吃瓜日报"，同时产出一份适合微信公众号的版本——同样的事实，但更犀利、更接地气。
+你是一位顶级的中文互联网科技/出海领域投资分析师,拥有10年经验.你每天为合伙人撰写一份"中文圈吃瓜日报",同时产出一份适合微信公众号的版本--同样的事实,但更犀利,更接地气.
 
-全文用中文回复。
+全文用中文回复.
 
 # Task
-分析过去24小时内，80+位中文圈AI创业者、出海开发者、独立开发者、SaaS创始人、知识博主在X上的推文（数据在末尾的JSONL中）。
-过滤掉日常闲聊和无意义互动，提炼出有"创业参考价值"和"出海实操价值"的洞察。
+分析过去24小时内,80+位中文圈AI创业者,出海开发者,独立开发者,SaaS创始人,知识博主在X上的推文(数据在末尾的JSONL中).
+过滤掉日常闲聊和无意义互动,提炼出有"创业参考价值"和"出海实操价值"的洞察.
 
 # Output Structure (严格按照Markdown格式)
 
 ## ⚡️ 今日看板 (The Pulse)
-  用一句话总结今日最核心的 1-2 个行业动态或出海信号。
+  用一句话总结今日最核心的 1-2 个行业动态或出海信号.
 
 ---
 
 ## 🧠 深度叙事追踪 (Thematic Narratives)
-将零散的推文按「主题/赛道」进行聚合（如：AI工具创业、出海变现、独立开发、SaaS增长、流量打法等）。
-每个主题输出格式严格如下（3-5个主题）：
+将零散的推文按"主题/赛道"进行聚合(如:AI工具创业,出海变现,独立开发,SaaS增长,流量打法等).
+每个主题输出格式严格如下(3-5个主题):
 
 ---
 
-**📌  主题标题1：副标题**
+**📌  主题标题1:副标题**
 
-> 💡 叙事转向：[一句话核心判断，说清楚"什么在变化、为什么重要"]
+> 💡 叙事转向:[一句话核心判断,说清楚"什么在变化,为什么重要"]
 
-- 🗣️ **@账号名|身份** 具体行为 + 创业/出海视角解读（不超过 60 字）
-- 🗣️ **@账号名** 具体行为 + 创业/出海视角解读（不超过 60 字）
-- 🗣️ **@账号名** 具体行为 + 创业/出海视角解读（不超过 60 字）
+- 🗣️ **@账号名|身份** 具体行为 + 创业/出海视角解读(不超过 60 字)
+- 🗣️ **@账号名** 具体行为 + 创业/出海视角解读(不超过 60 字)
+- 🗣️ **@账号名** 具体行为 + 创业/出海视角解读(不超过 60 字)
 
 
 ---
 
-**📌  主题标题2：副标题**
+**📌  主题标题2:副标题**
 
-> 💡 叙事转向：[一句话核心判断，说清楚"什么在变化、为什么重要"]
+> 💡 叙事转向:[一句话核心判断,说清楚"什么在变化,为什么重要"]
 
-- 🗣️ **@账号名|身份** 具体行为 + 创业/出海视角解读（不超过 60 字）
-- 🗣️ **@账号名** 具体行为 + 创业/出海视角解读（不超过 60 字）
-- 🗣️ **@账号名** 具体行为 + 创业/出海视角解读（不超过 60 字）
+- 🗣️ **@账号名|身份** 具体行为 + 创业/出海视角解读(不超过 60 字)
+- 🗣️ **@账号名** 具体行为 + 创业/出海视角解读(不超过 60 字)
+- 🗣️ **@账号名** 具体行为 + 创业/出海视角解读(不超过 60 字)
 
-（每个主题之间空一行，emoji 可根据主题选择：🤖⚔️🏭🦾💡🔥📊🚀💰🌊）
+(每个主题之间空一行,emoji 可根据主题选择:🤖⚔️🏭🦾💡🔥📊🚀💰🌊)
 
 ---
 
 ## 💰 搞钱雷达 (Money Radar)
-1. **变现快讯：** 扫描数据中提到的具体产品收入、MRR、用户增长数据。
-2. **出海机会：** 提炼创业者分享的海外市场洞察、流量渠道、变现模式。
-3. **工具推荐：** 汇总被多人提及或推荐的AI工具、SaaS产品、开发者工具。
+1. **变现快讯:** 扫描数据中提到的具体产品收入,MRR,用户增长数据.
+2. **出海机会:** 提炼创业者分享的海外市场洞察,流量渠道,变现模式.
+3. **工具推荐:** 汇总被多人提及或推荐的AI工具,SaaS产品,开发者工具.
 
 ---
 
 ## 📊 风险与趋势 (Risk & Trends)
-1. **踩坑预警：** 汇总创业者分享的失败教训、被封号、合规问题等。
-2. **趋势判断：** 结合多条推文，给出1-2个中短期趋势判断。
+1. **踩坑预警:** 汇总创业者分享的失败教训,被封号,合规问题等.
+2. **趋势判断:** 结合多条推文,给出1-2个中短期趋势判断.
 
 ---
 
 ## 📣 今日精选推文 (Top 5 Picks)
 
-从今日数据中精选 5 条最具代表性的原始推文，格式严格如下（不得偏离）：
+从今日数据中精选 5 条最具代表性的原始推文,格式严格如下(不得偏离):
 
 - 🗣️ **@账号**|身份标签
-   "「中文原文或译文，限 60 字内，保留原文语气」"
+   ""中文原文或译文,限 60 字内,保留原文语气""
 
-示例：
+示例:
 - 🗣️ **@dotey** · AI翻译/开发者
-  > "「用Claude写了个小工具，自动把英文Newsletter翻译成中文，已经跑了一个月零成本。」"
+  > ""用Claude写了个小工具,自动把英文Newsletter翻译成中文,已经跑了一个月零成本.""
 
-选取标准：优先选点赞数最高、实操价值最大的推文，覆盖不同账号。
+选取标准:优先选点赞数最高,实操价值最大的推文,覆盖不同账号.
 
 # Constraints
-- **格式纪律（严格遵守）：**
-  - 只允许使用 ## 二级标题，禁止出现 ### 三级标题
-  - 每个要点用 `- ` 开头的短 bullet，单条不超过 80 个汉字（约两行）
-  - 禁止出现超过 3 行的连续正文段落，超长内容必须拆成多条 bullet
+- **格式纪律(严格遵守):**
+  - 只允许使用 ## 二级标题,禁止出现 ### 三级标题
+  - 每个要点用 `- ` 开头的短 bullet,单条不超过 80 个汉字(约两行)
+  - 禁止出现超过 3 行的连续正文段落,超长内容必须拆成多条 bullet
   - 每个 ## 段落之间不加多余空行
-- **禁止技术堆砌：** 不要解释算法原理，只需说该技术如何帮助变现或降低成本。
-- **实操视角：** 重点关注「怎么赚钱」和「怎么做」。
-- **语言风格：** 专业、干脆、利落，适合在飞书移动端快速扫读。
+- **禁止技术堆砌:** 不要解释算法原理,只需说该技术如何帮助变现或降低成本.
+- **实操视角:** 重点关注"怎么赚钱"和"怎么做".
+- **语言风格:** 专业,干脆,利落,适合在飞书移动端快速扫读.
 
 # Input Data (JSONL)
 {combined_jsonl}
@@ -775,10 +775,10 @@ def _build_llm_prompt(combined_jsonl: str, today_str: str) -> str:
 {today_str}
 
 ---
-**输出完正文后，必须在最后附上以下三行（不可省略，紧跟正文末尾）：**
-TITLE: （5-10字中文标题，适合微信公众号，如"AI出海日报｜谁又月入百万了"）
-PROMPT: （英文封面图生成提示词，100字以内，描述科技感画面，如"futuristic digital nomad working on laptop global map holographic interface neon blue"）
-INSIGHT: （一句话核心洞察，中文，30字以内）
+**输出完正文后,必须在最后附上以下三行(不可省略,紧跟正文末尾):**
+TITLE: (5-10字中文标题,适合微信公众号,如"AI出海日报｜谁又月入百万了")
+PROMPT: (英文封面图生成提示词,100字以内,描述科技感画面,如"futuristic digital nomad working on laptop global map holographic interface neon blue")
+INSIGHT: (一句话核心洞察,中文,30字以内)
 """
 
 
@@ -818,7 +818,7 @@ def _openrouter_post(endpoint: str, payload: dict, timeout: int = 300,
 
 
 # ==============================================================================
-# Claude (OpenRouter) — PRIMARY
+# Claude (OpenRouter) - PRIMARY
 # ==============================================================================
 def llm_call_claude(combined_jsonl: str, today_str: str):
     if not OPENROUTER_API_KEY:
@@ -860,7 +860,7 @@ def llm_call_claude(combined_jsonl: str, today_str: str):
 
 
 # ==============================================================================
-# Kimi (Moonshot API) — FALLBACK
+# Kimi (Moonshot API) - FALLBACK
 # ==============================================================================
 def llm_call_kimi(combined_jsonl: str, today_str: str):
     if not KIMI_API_KEY:
@@ -929,16 +929,16 @@ def _parse_llm_result(result: str):
     else:
         search_text = result
 
-    title_m   = re.search(r"TITLE[:：]\s*(.+)",                      search_text)
-    prompt_m  = re.search(r"PROMPT[:：]\s*([\s\S]+?)(?=INSIGHT[:：]|$)", search_text)
-    insight_m = re.search(r"INSIGHT[:：]\s*([\s\S]+)",              search_text)
+    title_m   = re.search(r"TITLE[::]\s*(.+)",                      search_text)
+    prompt_m  = re.search(r"PROMPT[::]\s*([\s\S]+?)(?=INSIGHT[::]|$)", search_text)
+    insight_m = re.search(r"INSIGHT[::]\s*([\s\S]+)",              search_text)
 
     cover_title   = title_m.group(1).strip()   if title_m   else ""
     cover_prompt  = prompt_m.group(1).strip()  if prompt_m  else ""
     cover_insight = insight_m.group(1).strip() if insight_m else ""
 
     # Strip TITLE/PROMPT/INSIGHT block from report_text so it doesn't appear in Feishu card
-    clean_report = re.sub(r"\n?TITLE[:：][\s\S]*$", "", report_text).strip()
+    clean_report = re.sub(r"\n?TITLE[::][\s\S]*$", "", report_text).strip()
 
     return clean_report, cover_title, cover_prompt, cover_insight
 
@@ -965,9 +965,9 @@ def llm_fallback(raw_b_text):
     )
 
     def _extract(text):
-        title_m   = re.search(r"TITLE[:：]\s*(.+)", text)
-        prompt_m  = re.search(r"PROMPT[:：]\s*([\s\S]+?)(?=INSIGHT[:：]|$)", text)
-        insight_m = re.search(r"INSIGHT[:：]\s*([\s\S]+)", text)
+        title_m   = re.search(r"TITLE[::]\s*(.+)", text)
+        prompt_m  = re.search(r"PROMPT[::]\s*([\s\S]+?)(?=INSIGHT[::]|$)", text)
+        insight_m = re.search(r"INSIGHT[::]\s*([\s\S]+)", text)
         return (
             title_m.group(1).strip()   if title_m   else "",
             prompt_m.group(1).strip()  if prompt_m  else "",
@@ -1072,7 +1072,7 @@ def upload_to_imgbb(image_path):
 
 
 # ==============================================================================
-# Feishu card — v3.3: fix ## and --- artifacts
+# Feishu card - v3.3: fix ## and --- artifacts
 # ==============================================================================
 def _preprocess_md(content_md: str) -> str:
     content_md = re.sub(r'^###\s+(.+)$', r'**\1**', content_md, flags=re.MULTILINE)
@@ -1133,7 +1133,7 @@ def send_to_feishu_card(content_md: str, today_str: str, model_label: str = "Cla
             },
             "header": {
                 "title": {
-                    "content": f"昨晚，那些出海搞钱的人都在聊啥 | {today_str}",
+                    "content": f"昨晚,那些出海搞钱的人都在聊啥 | {today_str}",
                     "tag": "plain_text",
                 },
                 "template": "blue",
@@ -1164,7 +1164,7 @@ def send_to_feishu_card(content_md: str, today_str: str, model_label: str = "Cla
 
 
 # ==============================================================================
-# WeChat HTML push — v3.3: handle ## and ---
+# WeChat HTML push - v3.3: handle ## and ---
 # ==============================================================================
 def _md_to_html(text):
     lines = text.split("\n")
@@ -1262,7 +1262,7 @@ def save_daily_data(today_str: str, post_objects: list, meta_results: dict,
 # ==============================================================================
 def main():
     print("=" * 60, flush=True)
-    print("昨晚，那些出海搞钱的人都在聊啥 v3.4 (Grok search + Claude/Kimi summary)", flush=True)
+    print("昨晚,那些出海搞钱的人都在聊啥 v3.4 (Grok search + Claude/Kimi summary)", flush=True)
     print("=" * 60, flush=True)
 
     test_mode = _is_test_mode()
