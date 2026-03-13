@@ -93,7 +93,7 @@ BATCH1_ACCOUNTS = [
 
 def _is_test_mode() -> bool:
     """
-    Enable via env: TEST_MODE=1/true/on/yes
+    Enable via env: TEST_MODE=0
     """
     v = (os.getenv("TEST_MODE", "") or "").strip().lower()
     return v in {"1", "true", "yes", "y", "on"}
