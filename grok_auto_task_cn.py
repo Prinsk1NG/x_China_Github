@@ -709,7 +709,7 @@ def _build_llm_prompt(combined_jsonl: str, today_str: str) -> str:
 
 ---
 
-**📌  主题标题1:副标题**
+**🤖  主题标题1:副标题**
 
 > 💡 叙事转向:[一句话核心判断,说清楚"什么在变化,为什么重要"]
 
@@ -720,7 +720,7 @@ def _build_llm_prompt(combined_jsonl: str, today_str: str) -> str:
 
 ---
 
-**📌  主题标题2:副标题**
+**🤖  主题标题2:副标题**
 
 > 💡 叙事转向:[一句话核心判断,说清楚"什么在变化,为什么重要"]
 
