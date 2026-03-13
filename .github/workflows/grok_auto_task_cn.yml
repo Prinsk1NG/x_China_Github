@@ -1,75 +1,65 @@
-name: X中文圈吃瓜日报自动发布
+name: Digital Nomad Daily Report (Grok+xAI v8.0)
 
 on:
+  # 每天定时执行 (UTC时间 00:00，对应北京时间早上 08:00)
   schedule:
-    - cron: "0 23 * * *"    # 每天北京时间 07:00（UTC+8 → UTC 23:00 前一天）
+    - cron: '0 0 * * *'
+  
+  # 允许在 GitHub Actions 页面手动点击运行，并支持传入测试参数
   workflow_dispatch:
+    inputs:
+      test_mode:
+        description: '开启测试模式 (只扫第一批14人，快速验证)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
-  run-grok-cn:
+  build-and-run:
     runs-on: ubuntu-latest
-    timeout-minutes: 110    # v3.4: 85min deadline + 25min buffer
-    permissions:
-      contents: write
-
+    
     steps:
-      - name: Checkout repository
+      - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
-      - name: Set up Python 3.11
+      - name: Set up Python 3.10
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-
-      # Fail fast on SyntaxError before heavy Playwright installs
-      - name: Sanity check (compile)
-        run: python -m py_compile grok_auto_task_cn.py
-
-      - name: Install dependencies
+          python-version: '3.10'
+          
+      - name: Install Dependencies
         run: |
-          pip install --upgrade pip
-          pip install playwright requests pynacl
-          playwright install chromium --with-deps
-
-      - name: Run grok_auto_task_cn
+          python -m pip install --upgrade pip
+          
+          # 🚨 核心改动 1：安装 playwright(网页自动化) 和 pynacl(自动更新Cookie密文)
+          pip install requests xai-sdk playwright pynacl
+          
+          # 🚨 核心改动 2：安装 Chromium 浏览器内核供 Grok 抓取使用
+          playwright install chromium
+          
+      - name: Run Auto Task Script
         env:
-          SUPER_GROK_COOKIES:   ${{ secrets.SUPER_GROK_COOKIES }}
-          FEISHU_WEBHOOK_URL:   ${{ secrets.FEISHU_WEBHOOK_URL }}
-          FEISHU_WEBHOOK_URL_1: ${{ secrets.FEISHU_WEBHOOK_URL_1 }}
-          FEISHU_WEBHOOK_URL_2: ${{ secrets.FEISHU_WEBHOOK_URL_2 }}
-          FEISHU_WEBHOOK_URL_3: ${{ secrets.FEISHU_WEBHOOK_URL_3 }}
-          SF_API_KEY:           ${{ secrets.SF_API_KEY }}
-          IMGBB_API_KEY:        ${{ secrets.IMGBB_API_KEY }}
-          KIMI_API_KEY:         ${{ secrets.KIMI_API_KEY }}
-          OPENROUTER_API_KEY:   ${{ secrets.OPENROUTER_API_KEY }}
-          PAT_FOR_SECRETS:      ${{ secrets.PAT_FOR_SECRETS }}
-          GITHUB_REPOSITORY:    ${{ github.repository }}
-          JIJYUN_WEBHOOK_URL:   ${{ secrets.JIJYUN_WEBHOOK_URL }}
-          KIMI_TEMPERATURE:     "1.0"
-          OPENROUTER_MODEL:     "anthropic/claude-sonnet-4-6"
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          SF_API_KEY: ${{ secrets.SF_API_KEY }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          JIJYUN_WEBHOOK_URL: ${{ secrets.JIJYUN_WEBHOOK_URL }}
+          TEST_MODE_ENV: ${{ github.event.inputs.test_mode }}
+          
+          # 🚨 核心改动 3：引入 Grok 网页版身份凭证与 GitHub 自动续期 Token
+          SUPER_GROK_COOKIES: ${{ secrets.SUPER_GROK_COOKIES }}
+          PAT_FOR_SECRETS: ${{ secrets.PAT_FOR_SECRETS }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          
         run: |
-          set -o pipefail
-          python grok_auto_task_cn.py |& tee run.log
+          # 确保这里执行的文件名与你仓库里的 Python 主程序文件名完全一致！
+          python x_api_auto_task_xai_xml.py
 
-      - name: Commit daily data
-        if: always()
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          [ -d data_cn ] && git add data_cn/ || true
-          git diff --staged --quiet || git commit -m "chore: save CN daily data $(date -u +%Y-%m-%d)"
-          git push || true
-
-      - name: Upload screenshots and logs
+      - name: Upload Data Artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cn-artifacts-${{ github.run_number }}
-          path: |
-            *.png
-            *.log
-            run.log
+          name: daily-data
+          # 🚨 核心改动 4：V8.0 代码保存数据的文件夹名变更为 data_cn
+          path: data_cn/
           retention-days: 7
-          if-no-files-found: ignore
