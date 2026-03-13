@@ -1,0 +1,168 @@
+{"a": "tuturetom", "l": 4, "t": "0311", "s": "I'm curious if building products on openclaw in 2026 is like building on base models in 2023 that birthed lobechat, dify, cherrystudio. What interesting packaged products will this openclaw lobster wave bring?", "tag": "raw"}
+{"a": "tuturetom", "l": 0, "t": "0222", "s": "This really works.", "tag": "raw"}
+{"a": "tuturetom", "l": 5, "t": "0207", "s": "Everyone already exploring? gpt engineer -> lovable, deepresearch -> manus, openclaw🦞 -> ? Posting to record exploration process 1/n", "tag": "raw"}
+{"a": "tuturetom", "l": 1, "t": "0207", "s": "Grateful ❤️", "tag": "raw"}
+{"a": "tuturetom", "l": 1780, "t": "0205", "s": "Figma is insane 🤯 Turns any image into perfect vector graphics, viral overseas with 1M views in half day. Solves designer pain points, key step to AI Native design 🔥", "tag": "raw"}
+{"a": "dotey", "l": 28, "t": "0313", "s": "WIRED details OpenAI chasing Anthropic in AI coding. Claude Code leads revenue at $25B annualized; Codex grows via GPT-5.2 but lags despite internal shifts and ad focus.", "tag": "raw"}
+{"a": "dotey", "l": 31, "t": "0313", "s": "Traditional product managers lag in AI era. Users with experience now directly build products using AI, bypassing PM middlemen.", "tag": "raw"}
+{"a": "op7418", "l": 48, "t": "0312", "s": "Obsidian clipper plugin updated for YouTube subtitles, AI annotation syntax, and new template category with core value insights.", "tag": "raw"}
+{"a": "op7418", "l": 0, "t": "0312", "s": "Codepilot works fine; only token needed per official docs, ignore other setup advice.", "tag": "raw"}
+{"a": "op7418", "l": 0, "t": "0312", "s": "Codepilot configuration requires just entering the token.", "tag": "raw"}
+{"a": "Gorden_Sun", "l": 0, "t": "0313", "s": "NotebookLM ranks worst among compared AI note tools.", "tag": "raw"}
+{"a": "Gorden_Sun", "l": 124, "t": "0312", "s": "Shared AI daily news article link for March 12.", "tag": "raw"}
+{"a": "Gorden_Sun", "l": 1, "t": "0312", "s": "AI news daily update for March 12 with image.", "tag": "raw"}
+{"a": "xiaohu", "l": 1, "t": "0313", "s": "Claude visualization feature detailed with link.", "tag": "raw"}
+{"a": "xiaohu", "l": 0, "t": "0313", "s": "Claude visualization triggers automatically on data topics or by user request like draw chart.", "tag": "raw"}
+{"a": "xiaohu", "l": 1, "t": "0313", "s": "Claude interactive periodic table demo and common chart use cases shown via video.", "tag": "raw"}
+{"a": "shao__meng", "l": 0, "t": "0313", "s": "Pragmatic Engineer 2026 AI tooling report summary: Claude Code leads, agents mainstream for engineers.", "tag": "raw"}
+{"a": "shao__meng", "l": 0, "t": "0313", "s": "Pi AI discussion; founder moved to Microsoft, project faded.", "tag": "raw"}
+{"a": "shao__meng", "l": 8, "t": "0313", "s": "HydraDB raises $6.5M to replace vector DBs with ontology context graph for better accuracy in large docs.", "tag": "raw"}
+{"a": "vista8", "l": 5, "t": "0313", "s": "Skill First approach endorsed despite seeming obsessive.", "tag": "raw"}
+{"a": "vista8", "l": 0, "t": "0313", "s": "Shared book list in Feishu table.", "tag": "raw"}
+{"a": "vista8", "l": 18, "t": "0313", "s": "Surgery recovery; expected discharge tonight with image.", "tag": "raw"}
+{"a": "lijigang", "l": 434, "t": "0311", "s": "All human behaviors point to one thing: being seen.", "tag": "raw"}
+{"a": "lijigang", "l": 41, "t": "0310", "s": "After crossing can-do threshold, next question is should-we.", "tag": "raw"}
+{"a": "lijigang", "l": 3, "t": "0309", "s": "Shared link to Amanda Askell Claude constitution example.", "tag": "raw"}
+{"a": "kaifulee", "l": 15, "t": "0312", "s": "01.ai hiring for enterprise AI agent roles globally; apply via email.", "tag": "raw"}
+{"a": "kaifulee", "l": 26, "t": "0111", "s": "AI 2041 book promo discount on Amazon US for Kindle and audiobook.", "tag": "raw"}
+{"a": "kaifulee", "l": 30, "t": "1231", "s": "Congrats Insilico Medicine HKEX IPO; SinovationVC backed AI drug discovery.", "tag": "raw"}
+{"a": "WaytoAGI", "l": 3, "t": "0311", "s": "WaytoAGI compiled OpenClaw tutorials in knowledge base link.", "tag": "raw"}
+{"a": "WaytoAGI", "l": 42, "t": "0311", "s": "OpenClaw architecture breakdown: timer, heartbeat, soul.md make it proactive agent.", "tag": "raw"}
+{"a": "WaytoAGI", "l": 9, "t": "0309", "s": "Open source marketing skills agent guide and playbook link.", "tag": "raw"}
+{"a": "oran_ge", "l": 4, "t": "0313", "s": "Friend interviewed 300 programmers last year; real data shared.", "tag": "raw"}
+{"a": "oran_ge", "l": 0, "t": "0313", "s": "DJI is like that comment.", "tag": "raw"}
+{"a": "oran_ge", "l": 0, "t": "0313", "s": "Search listenhub skills directly in skilled dragon shrimp.", "tag": "raw"}
+{"a": "AlchainHust", "l": 2, "t": "0313", "s": "Predicted idle fish listings for new item appear already.", "tag": "raw"}
+{"a": "AlchainHust", "l": 53, "t": "0312", "s": "Book made with Claude Code; workflow explained in linked article.", "tag": "raw"}
+{"a": "AlchainHust", "l": 3, "t": "0312", "s": "v1.2 update expands skills ecosystem, MCP fusion, Moltbook acquisition, new InStreet agent network.", "tag": "raw"}
+{"a": "elliotchen100", "l": 2, "t": "0313", "s": "MiroMind releases MiroThinker-1.7 and H1 heavy-duty verifiable agents with SOTA benchmarks.", "tag": "raw"}
+{"a": "elliotchen100", "l": 3, "t": "0313", "s": "Electrobun new framework challenges Electron with lighter, faster TS-first system WebView.", "tag": "raw"}
+{"a": "elliotchen100", "l": 0, "t": "0312", "s": "AI cannot replicate this authentic flavor.", "tag": "raw"}
+{"a": "berryxia", "l": 3, "t": "0313", "s": "Appreciates clean, tense, sexy designs reminiscent of Sony and Braun.", "tag": "raw"}
+{"a": "berryxia", "l": 1, "t": "0313", "s": "Not criticizing the video; PS blank canvas test is valid for performance.", "tag": "raw"}
+{"a": "berryxia", "l": 0, "t": "0313", "s": "Yes haha.", "tag": "raw"}
+{"a": "lidangzzz", "l": 42, "t": "0313", "s": "Humanity lacks power, turbines, DRAM, NAND, copper, silver, wires, fans, ACs, helium; repeating this marks mid-level stock fools.", "tag": "raw"}
+{"a": "lidangzzz", "l": 125, "t": "0312", "s": "Humans adapt perfectly to industrial assembly line products; no need for customization.", "tag": "raw"}
+{"a": "lidangzzz", "l": 151, "t": "0312", "s": "Shared image link.", "tag": "raw"}
+{"a": "lxfater", "l": 0, "t": "0313", "s": "Stable cash flow matters more than anything.", "tag": "raw"}
+{"a": "lxfater", "l": 24, "t": "0313", "s": "Freedom comes from earning enough money first, not quitting to develop independently.", "tag": "raw"}
+{"a": "lxfater", "l": 1, "t": "0312", "s": "No such carefree life; seize AI era opportunity before pursuing freedom.", "tag": "raw"}
+{"a": "Fenng", "l": 61, "t": "0311", "s": "Harvard study: excessive AI interaction causes brain fry and mental fog in high performers.", "tag": "raw"}
+{"a": "Fenng", "l": 170, "t": "0311", "s": "North Korea nuclear tech came from Pakistan's A.Q. Khan network, not USSR.", "tag": "raw"}
+{"a": "Fenng", "l": 1, "t": "0311", "s": "Laughed at Osaka underground pipe rising video.", "tag": "raw"}
+{"a": "turingou", "l": 33, "t": "0312", "s": "This has reached installation art level.", "tag": "raw"}
+{"a": "turingou", "l": 1, "t": "0312", "s": "All happen naturally.", "tag": "raw"}
+{"a": "turingou", "l": 99, "t": "0312", "s": "Projects form complete agent/one-person company production stack.", "tag": "raw"}
+{"a": "tinyfool", "l": 3, "t": "0313", "s": "Suddenly lost my posted tweet?", "tag": "raw"}
+{"a": "tinyfool", "l": 0, "t": "0313", "s": "I also love fried rice most.", "tag": "raw"}
+{"a": "tinyfool", "l": 1, "t": "0313", "s": "This way tastes very good.", "tag": "raw"}
+{"a": "virushuo", "l": 0, "t": "0312", "s": "Yes, that time with gokeeper too.", "tag": "raw"}
+{"a": "virushuo", "l": 0, "t": "0312", "s": "Wow, already 10 years.", "tag": "raw"}
+{"a": "virushuo", "l": 0, "t": "0312", "s": "Welcome to Canada; let's meet if free.", "tag": "raw"}
+{"a": "fankaishuoai", "l": 0, "t": "0313", "s": "True or fake, domestic big tech base behavior; stick to overseas software.", "tag": "raw"}
+{"a": "fankaishuoai", "l": 0, "t": "0313", "s": "GPT 5.4 more verbose than 5.2; prefer Claude Opus/Sonnet concise and on-point.", "tag": "raw"}
+{"a": "fankaishuoai", "l": 6, "t": "0312", "s": "Opened FanKaiSayAI Telegram group for AI trends, transformation, Claw ops.", "tag": "raw"}
+{"a": "XDash", "l": 117, "t": "0228", "s": "100% time save: use AI. 500%: five agents. Infinite: stop tinkering AI toys.", "tag": "raw"}
+{"a": "XDash", "l": 0, "t": "0221", "s": "Should auto deliver; check spam or contact for manual send.", "tag": "raw"}
+{"a": "idoubicc", "l": 140, "t": "0301", "s": "Open sourced FastClaw: k8s pod OpenClaw for multi-tenant isolation, PVC persistence, scalable cloud deployment. RESTful API for instance creation, running, model/channel config, one-click bot hosting.", "tag": "raw"}
+{"a": "idoubicc", "l": 0, "t": "0228", "s": "Thank you bro.", "tag": "raw"}
+{"a": "idoubicc", "l": 1, "t": "0228", "s": "Posted thinking emoji image.", "tag": "raw"}
+{"a": "Cydiar404", "l": 0, "t": "0312", "s": "Apologized for payment maintenance issues. No impact on recharged users. RPM based on recharge multiples. Refunded $20 minus Stripe fees. Voucher after upgrade.", "tag": "raw"}
+{"a": "Cydiar404", "l": 0, "t": "0312", "s": "Asked for details on points, limits, errors. Send screenshots.", "tag": "raw"}
+{"a": "Cydiar404", "l": 1, "t": "0309", "s": "Encouraged Longyi brother: keep going, rooting for you!", "tag": "raw"}
+{"a": "JefferyTatsuya", "l": 2, "t": "0310", "s": "Questioned if Facebook really bought Moltbook.", "tag": "raw"}
+{"a": "JefferyTatsuya", "l": 0, "t": "0310", "s": "Suggested using CC to install.", "tag": "raw"}
+{"a": "JefferyTatsuya", "l": 2, "t": "0309", "s": "Uses OpenClaw to host vertical agents built with Claude Code. Runs locally on large personal document system as side brain.", "tag": "raw"}
+{"a": "CoderJeffLee", "l": 1, "t": "0310", "s": "666", "tag": "raw"}
+{"a": "CoderJeffLee", "l": 5, "t": "0310", "s": "Reviewed skill source code. Many low-quality MD skills with high stars. Recommends official Anthropic examples.", "tag": "raw"}
+{"a": "CoderJeffLee", "l": 4, "t": "0308", "s": "Shared OpenClaw employee daily report quality. Impressive.", "tag": "raw"}
+{"a": "iamtonyzhu", "l": 0, "t": "0313", "s": "These opportunity grabbers are awesome.", "tag": "raw"}
+{"a": "iamtonyzhu", "l": 0, "t": "0313", "s": "Cyber passive income.", "tag": "raw"}
+{"a": "iamtonyzhu", "l": 0, "t": "0313", "s": "Little lobster playstyles increasing.", "tag": "raw"}
+{"a": "tualatrix", "l": 2, "t": "0312", "s": "Yes!", "tag": "raw"}
+{"a": "tualatrix", "l": 8, "t": "0312", "s": "PUA really works... to solve problems.", "tag": "raw"}
+{"a": "tualatrix", "l": 1, "t": "0312", "s": "Air is still a bit weak after all.", "tag": "raw"}
+{"a": "luinlee", "l": 5, "t": "0309", "s": "Claude Code Review feature impressive but $15-25 pricing nears engineer salary. Will test soon.", "tag": "raw"}
+{"a": "luinlee", "l": 1, "t": "0309", "s": "Afraid it will ruin the company 😂", "tag": "raw"}
+{"a": "luinlee", "l": 11, "t": "0309", "s": "Vibe coded weekend OpenClaw sandboxed per agent loop for safe internal company use. Realized it cripples OpenClaw.", "tag": "raw"}
+{"a": "seclink", "l": 0, "t": "0313", "s": "Old bro renewed membership after long break.", "tag": "raw"}
+{"a": "seclink", "l": 0, "t": "0313", "s": "Handsome guy programming video tutorials get more viewers.", "tag": "raw"}
+{"a": "seclink", "l": 1, "t": "0313", "s": "Strongly believe Cat Penknife public account material sources include similar prompts. Super useful!", "tag": "raw"}
+{"a": "XiaohuiAI666", "l": 0, "t": "0312", "s": "Received compensation, signed contract 😂 Now think better to expose fully without it.", "tag": "raw"}
+{"a": "XiaohuiAI666", "l": 2, "t": "0312", "s": "Experienced similar ad deal cancellation after revisions by big AI model company. Only 10% compensation. Advise collect deposits.", "tag": "raw"}
+{"a": "XiaohuiAI666", "l": 0, "t": "0312", "s": "WorkBuddy is Tencent's desktop AI agent, compatible with OpenClaw ecosystem, simpler to use.", "tag": "raw"}
+{"a": "gefei55", "l": 64, "t": "0312", "s": "2024 YouTube ads $36.1B below Disney+NBC+Paramount+Warner $41.8B combined. 2025 YouTube $40.4B exceeds their $37.8B. Still behind Meta $196.2B.", "tag": "raw"}
+{"a": "gefei55", "l": 291, "t": "0312", "s": "Product name tips: Open for OpenAI acquisition, M/Book for Meta, Clawd-like for Claude lawyer letter.", "tag": "raw"}
+{"a": "gefei55", "l": 11, "t": "0310", "s": "Meta acquired MoltBook. Founder joins team. ZooBlocks.app hit 1K PV day 2.", "tag": "raw"}
+{"a": "AI_Jasonyu", "l": 8, "t": "0313", "s": "Apple tax cut in China: standard 30% to 25%, small biz/auto-renew 15% to 12%. Effective Mar 15 2026. Big developer profit boost.", "tag": "raw"}
+{"a": "AI_Jasonyu", "l": 0, "t": "0313", "s": "No problem at all.", "tag": "raw"}
+{"a": "AI_Jasonyu", "l": 1, "t": "0313", "s": "Because you are expert, we are newbies 🐦", "tag": "raw"}
+{"a": "JourneymanChina", "l": 0, "t": "0313", "s": "Doubao PC PM make such basic error? No global search top left.", "tag": "raw"}
+{"a": "JourneymanChina", "l": 1, "t": "0313", "s": "First heard Yan Chunfeng daughter incident. Led to his downfall.", "tag": "raw"}
+{"a": "JourneymanChina", "l": 3, "t": "0312", "s": "Such boring post attracts brainless black colonizers.", "tag": "raw"}
+{"a": "GoSailGlobal", "l": 0, "t": "0313", "s": "Video带撸 🐮", "tag": "raw"}
+{"a": "GoSailGlobal", "l": 1, "t": "0313", "s": "You just started work.", "tag": "raw"}
+{"a": "GoSailGlobal", "l": 0, "t": "0313", "s": "👀", "tag": "raw"}
+{"a": "chuhaiqu", "l": 2, "t": "0313", "s": "Shared link to an X article.", "tag": "raw"}
+{"a": "chuhaiqu", "l": 0, "t": "0313", "s": "Commented 'High martial arts skills!' in conversation.", "tag": "raw"}
+{"a": "chuhaiqu", "l": 8, "t": "0312", "s": "Argued AI flattens dev barriers so distribution is key moat. Focus one platform, manual comments early, build self-interested growth, add human touch.", "tag": "raw"}
+{"a": "daluoseo", "l": 1, "t": "0311", "s": "Promoted Hermes Agent as stronger, stable OpenClaw alternative that evolves continuously.", "tag": "raw"}
+{"a": "daluoseo", "l": 0, "t": "0311", "s": "Reported power outage making UPS and internet useless.", "tag": "raw"}
+{"a": "daluoseo", "l": 0, "t": "0311", "s": "Worried about home power outage during business trip, shared photo.", "tag": "raw"}
+{"a": "realNyarime", "l": 1, "t": "0313", "s": "Detailed eSIM flashing for China/HK/Taiwan devices using Odin/SamFW, noted limitations and HK version recommendation.", "tag": "raw"}
+{"a": "realNyarime", "l": 0, "t": "0313", "s": "Posted playful comment about seductive academic figure.", "tag": "raw"}
+{"a": "realNyarime", "l": 0, "t": "0313", "s": "Advised on China Mobile eSIM ICCID issue, add post-QR then flash HK firmware.", "tag": "raw"}
+{"a": "DigitalNomadLC", "l": 0, "t": "0216", "s": "Wished happy new year for Bingwu horse year with prosperity and wealth.", "tag": "raw"}
+{"a": "DigitalNomadLC", "l": 0, "t": "0127", "s": "Promoted limited Bitget Wallet horse year cards with rewards for new/old users.", "tag": "raw"}
+{"a": "DigitalNomadLC", "l": 1, "t": "0122", "s": "Shared YouTube tutorial for Yingli Securities US stock account opening with rewards.", "tag": "raw"}
+{"a": "RocM301", "l": 0, "t": "0313", "s": "Reported Tencent SkillHub accused of copying ClawHub data by OpenClaw founder, server costs issue.", "tag": "raw"}
+{"a": "RocM301", "l": 1, "t": "0313", "s": "Announced Apple lowering China App Store commission to 25% from March 15.", "tag": "raw"}
+{"a": "RocM301", "l": 3, "t": "0312", "s": "Shared Tim Cook letter for Apple's 50th anniversary with image.", "tag": "raw"}
+{"a": "shuziyimin", "l": 20, "t": "0306", "s": "Confirmed iOS transcript feature limited on China iPhones, no button despite same account.", "tag": "raw"}
+{"a": "shuziyimin", "l": 53, "t": "0306", "s": "Introduced iOS 17.4 podcast transcripts for four languages, recommended for language learners.", "tag": "raw"}
+{"a": "shuziyimin", "l": 10, "t": "0203", "s": "Shared article on handling banned ChatGPT accounts for sharing service.", "tag": "raw"}
+{"a": "itangtalk", "l": 1, "t": "0313", "s": "Published 2026 AnytimeMailbox US private address application guide avoiding CMRA.", "tag": "raw"}
+{"a": "itangtalk", "l": 0, "t": "0312", "s": "Tutorial to find bank-valid US addresses using USPS CMRA check and Capital One test.", "tag": "raw"}
+{"a": "itangtalk", "l": 2, "t": "0312", "s": "Guide for Capital One credit cards as US credit entry point with three recommendations.", "tag": "raw"}
+{"a": "guishou_56", "l": 0, "t": "0312", "s": "Commented not making money.", "tag": "raw"}
+{"a": "guishou_56", "l": 0, "t": "0312", "s": "Replied overthinking, the person posts no external links.", "tag": "raw"}
+{"a": "guishou_56", "l": 0, "t": "0312", "s": "Empathized it's tough for both.", "tag": "raw"}
+{"a": "9yearfish", "l": 0, "t": "0224", "s": "Joked last time something was this long was 20 years ago.", "tag": "raw"}
+{"a": "9yearfish", "l": 1, "t": "0221", "s": "Replied thank you, happy new year.", "tag": "raw"}
+{"a": "9yearfish", "l": 2, "t": "0221", "s": "Suggested claiming to be Baidu executive to cousin next time.", "tag": "raw"}
+{"a": "waylybaye", "l": 1, "t": "0311", "s": "Argued against only using harness in agent SDKs due to limitations.", "tag": "raw"}
+{"a": "waylybaye", "l": 109, "t": "0311", "s": "Chose to custom-build agent SDK rejecting existing frameworks' extremes and harness constraints.", "tag": "raw"}
+{"a": "waylybaye", "l": 92, "t": "0311", "s": "PayPal suspended Chinese account payments causing failures; domain expired alert scared.", "tag": "raw"}
+{"a": "randyloop", "l": 0, "t": "0312", "s": "Confirmed self-written tool useful but not released publicly.", "tag": "raw"}
+{"a": "randyloop", "l": 14, "t": "0312", "s": "Praised NanoBanana2 good effect and price with photos.", "tag": "raw"}
+{"a": "randyloop", "l": 56, "t": "0312", "s": "Complained only one on Twitter without ChatGPT Pro for open source.", "tag": "raw"}
+{"a": "livid", "l": 10, "t": "0310", "s": "Shared image without text.", "tag": "raw"}
+{"a": "livid", "l": 269, "t": "0310", "s": "Described 4am eating snow crab legs as Codex completed years of ideas.", "tag": "raw"}
+{"a": "livid", "l": 1, "t": "0303", "s": "Shared GitHub link to meteora-calendar.", "tag": "raw"}
+{"a": "shengxj1", "l": 3, "t": "0313", "s": "Wished surgery patient quick recovery, noted hospital reading faster, with photo.", "tag": "raw"}
+{"a": "shengxj1", "l": 0, "t": "0313", "s": "Stated senior programmers' unemployment pain is lack of work.", "tag": "raw"}
+{"a": "shengxj1", "l": 5, "t": "0313", "s": "Noted missing original iPhone missed early iOS developer opportunity.", "tag": "raw"}
+{"a": "FinanceYF5", "l": 0, "t": "0313", "s": "Concluded a16z Consumer AI Top 100 list share, urged follow and like original.", "tag": "raw"}
+{"a": "FinanceYF5", "l": 0, "t": "0313", "s": "Listed all companies entering a16z Consumer AI Top 100 with image.", "tag": "raw"}
+{"a": "FinanceYF5", "l": 0, "t": "0313", "s": "Noted list underestimates desktop AI use; stats need evolution.", "tag": "raw"}
+{"a": "fkysly", "l": 2, "t": "0313", "s": "Shared site checking Codex rate limit reset due to frequent resets.", "tag": "raw"}
+{"a": "fkysly", "l": 1, "t": "0313", "s": "Mentioned switching to different virtual card.", "tag": "raw"}
+{"a": "fkysly", "l": 2, "t": "0312", "s": "Encouraged job seeker to eat first then continue indie dev.", "tag": "raw"}
+{"a": "zhixianio", "l": 1, "t": "0312", "s": "Encouraged let's go together.", "tag": "raw"}
+{"a": "zhixianio", "l": 6, "t": "0312", "s": "Announced QQ bot easy setup in BotDrop for Android agent deployment.", "tag": "raw"}
+{"a": "zhixianio", "l": 0, "t": "0312", "s": "Joked host also needs something to manage first.", "tag": "raw"}
+{"a": "hongming731", "l": 0, "t": "0313", "s": "Described Codex workflow generating 10 platform-adapted contents from 20 topics.", "tag": "raw"}
+{"a": "hongming731", "l": 0, "t": "0313", "s": "Updated content workflow using Codex for topics from BestBlogs and Twitter.", "tag": "raw"}
+{"a": "hongming731", "l": 0, "t": "0313", "s": "Shared auto morning report by bot from BestBlogs, invited to group.", "tag": "raw"}
+{"a": "penny777", "l": 0, "t": "0312", "s": "Reassured parents grow fastest educating kids.", "tag": "raw"}
+{"a": "penny777", "l": 0, "t": "0312", "s": "Suggested go eat full.", "tag": "raw"}
+{"a": "penny777", "l": 0, "t": "0312", "s": "Posted affectionate 'good'.", "tag": "raw"}
+{"a": "jiqizhixin", "l": 9, "t": "0312", "s": "Introduced GENIUS suite testing AI generative fluid intelligence, showed model deficits.", "tag": "raw"}
+{"a": "jiqizhixin", "l": 0, "t": "0312", "s": "Shared paper on Prompts and Prayers rise of GPTheology.", "tag": "raw"}
+{"a": "jiqizhixin", "l": 0, "t": "0312", "s": "Explained shift to AI oracles for salvation with GPTheology humor.", "tag": "raw"}
+{"a": "evilcos", "l": 2, "t": "0313", "s": "Joked poisoning top Skills could massively disrupt lobster agents.", "tag": "raw"}
+{"a": "evilcos", "l": 4, "t": "0312", "s": "Praised post solving AI agent payment protocol question.", "tag": "raw"}
+{"a": "evilcos", "l": 0, "t": "0312", "s": "Noted 17 injection items identified.", "tag": "raw"}
+{"a": "aigclink", "l": 2, "t": "0313", "s": "Shared GitHub link to MetaClaw project.", "tag": "raw"}
+{"a": "aigclink", "l": 2, "t": "0313", "s": "MetaClaw is an automatic learning system for OpenClaw that summarizes chat experiences into skills, injects them asynchronously to improve AI performance without extra operations.", "tag": "raw"}
+{"a": "aigclink", "l": 0, "t": "0312", "s": "Shared Google blog about Gemini-based flood prediction model using Groundsource to analyze historical events.", "tag": "raw"}
